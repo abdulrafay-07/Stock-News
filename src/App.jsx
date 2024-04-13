@@ -1,4 +1,7 @@
 import React, { useEffect } from 'react';
+import { Header, PrivateRoutes } from './components/index';
+import { Home, SearchNews } from './pages/index';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
   useEffect(() => {
@@ -12,7 +15,15 @@ const App = () => {
   }, [])
 
   return (
-    <div>App</div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path='/search-news' element={<SearchNews />} />
+        <Route element={<PrivateRoutes />}>
+          <Route path='/' element={<Home />} />
+        </Route>
+      </Routes>
+    </Router>
   )
 }
 

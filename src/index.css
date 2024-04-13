@@ -4,3 +4,77 @@
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+body {
+  background-color: whitesmoke;
+}
+
+/* Header */
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: aliceblue;
+  background-color: rgb(23, 22, 22);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.header-wrapper h1 {
+  display: flex;
+  cursor: pointer;
+}
+
+.header-wrapper span, .header-icon {
+  color: wheat;
+  margin-right: 0.3125rem;
+}
+
+.header-icon {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+.header-wrapper h2 {
+  cursor: pointer;
+}
+
+.header-wrapper h2:hover {
+  color: wheat;
+  transition: all 0.3s ease-out;
+}
+
+/* Banner */
+
+.banner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.5rem;
+}
+
+.banner-wrapper h1 {
+  font-size: 4.5rem;
+}
+
+.banner-wrapper p {
+  font-size: 1rem;
+}
+
+/* Home */
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8rem 2rem;
+  row-gap: 4rem;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
