@@ -7,9 +7,15 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        const today = new Date();
+        const yesterday = new Date(today);
+        yesterday.setDate(today.getDate() - 2);
+
+        const formattedDate = `${yesterday.getFullYear()}-${(yesterday.getMonth() + 1).toString().padStart(2, '0')}-${yesterday.getDate().toString().padStart(2, '0')}`;
+
         const fetchTechData = async () => {
             try {
-                const response = await fetch(`https://newsapi.org/v2/everything?q=tech&from=2024-4-12&pageSize=30&sortBy=popularity&apiKey=${import.meta.env.VITE_NEWS_API}`);
+                const response = await fetch(`https://newsapi.org/v2/everything?q=tech&from=${formattedDate}&pageSize=30&sortBy=popularity&apiKey=${import.meta.env.VITE_NEWS_API}`);
                 const data = await response.json();
                 setTechArticles(data.articles);
                 setLoading(false);
@@ -20,7 +26,7 @@ const Home = () => {
 
         const fetchPoliticsData = async () => {
             try {
-                const response = await fetch(`https://newsapi.org/v2/everything?q=politics&from=2024-4-12&pageSize=30&sortBy=popularity&apiKey=${import.meta.env.VITE_NEWS_API}`);
+                const response = await fetch(`https://newsapi.org/v2/everything?q=politics&from=${formattedDate}&pageSize=30&sortBy=popularity&apiKey=${import.meta.env.VITE_NEWS_API}`);
                 const data = await response.json();
                 setPoliticsArticles(data.articles);
                 setLoading(false);

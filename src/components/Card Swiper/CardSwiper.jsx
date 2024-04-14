@@ -25,7 +25,13 @@ const CardSwiper = ({ articles, title }) => {
         }
     };
 
-    const filteredArticles = articles.filter(article => article.author !== null && article.title !== null && article.urlToImage !== null && article.author.length < 15);
+    const filteredArticles = articles.filter(
+        article => article.author !== null && 
+        article.title !== null && 
+        article.urlToImage !== null &&
+        article.urlToImage !== null && 
+        article.author.length < 15
+    );
 
     return (
         <div className='card-wrapper'>
