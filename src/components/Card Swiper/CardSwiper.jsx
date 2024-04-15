@@ -29,7 +29,9 @@ const CardSwiper = ({ articles, title }) => {
         article => article.author !== null && 
         article.title !== null && 
         article.urlToImage !== null &&
-        article.urlToImage !== null && 
+        article.urlToImage !== null &&
+        article.description !== null &&
+        article.description !== "" &&
         article.author.length < 15
     );
 

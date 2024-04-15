@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NewsCard = ({ article }) => {
     
-    const truncateDescription = (description, maxLength) => {
+    const truncateTitle = (description, maxLength) => {
         if (description.length <= maxLength) {
             return description;
         } else {
@@ -26,7 +26,7 @@ const NewsCard = ({ article }) => {
                 <span>Published At: </span>
                 {new Date(article.publishedAt).toLocaleDateString()}
             </p>
-            <p>{truncateDescription(article.description, 60)}</p>
+            <p>{truncateTitle(article.title, 60)}</p>
         </div>
     )
 }

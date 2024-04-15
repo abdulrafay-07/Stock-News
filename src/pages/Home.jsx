@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Banner, CardSwiper } from '../components';
 
 const Home = () => {
-    const [techArticles, setTechArticles] = useState([]);
-    const [politicsArticles, setPoliticsArticles] = useState([]);
+    const [articles, setArticles] = useState({
+        tech: [],
+        politics: [],
+        gaming: [],
+    });
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -13,37 +16,32 @@ const Home = () => {
 
         const formattedDate = `${yesterday.getFullYear()}-${(yesterday.getMonth() + 1).toString().padStart(2, '0')}-${yesterday.getDate().toString().padStart(2, '0')}`;
 
-        const fetchTechData = async () => {
+        const fetchData = async (category, query) => {
             try {
-                const response = await fetch(`https://newsapi.org/v2/everything?q=tech&from=${formattedDate}&pageSize=30&sortBy=popularity&apiKey=${import.meta.env.VITE_NEWS_API}`);
+                const response = await fetch(`https://newsapi.org/v2/everything?q=${query}&from=${formattedDate}&pageSize=35&sortBy=popularity&apiKey=${import.meta.env.VITE_NEWS_API}`);
                 const data = await response.json();
-                setTechArticles(data.articles);
-                setLoading(false);
+                setArticles(prevState => ({
+                    ...prevState,
+                    [category]: data.articles
+                }));
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error(`Error fetching ${category} data:`, error);
             }
         }
 
-        const fetchPoliticsData = async () => {
-            try {
-                const response = await fetch(`https://newsapi.org/v2/everything?q=politics&from=${formattedDate}&pageSize=30&sortBy=popularity&apiKey=${import.meta.env.VITE_NEWS_API}`);
-                const data = await response.json();
-                setPoliticsArticles(data.articles);
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        }
-    
-        fetchTechData();
-        fetchPoliticsData();
+        Promise.all([
+            fetchData('tech', 'tech'),
+            fetchData('politics', 'politics'),
+            fetchData('gaming', 'gaming')
+        ]).then(() => setLoading(false));
     }, [])
 
     return !loading ? (
         <div className='home-wrapper'>
             <Banner />
-            <CardSwiper articles={techArticles} title='Tech News' />
-            <CardSwiper articles={politicsArticles} title='Political News' />
+            <CardSwiper articles={articles.tech} title='Tech News' />
+            <CardSwiper articles={articles.politics} title='Political News' />
+            <CardSwiper articles={articles.gaming} title='Gaming News' />
         </div>
     ) : <h1 className='loading-state'>Loading...</h1>
 }

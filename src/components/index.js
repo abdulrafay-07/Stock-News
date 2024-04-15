@@ -3,5 +3,7 @@ import PrivateRoutes from './Private Routes/PrivateRoutes';
 import Banner from './Banner/Banner';
 import CardSwiper from './Card Swiper/CardSwiper';
 import NewsCard from './News Card/NewsCard';
+import SingleNewsData from './Single News Data/SingleNewsData';
+import Sidebar from './News Sidebar/Sidebar';
 
-export { Header, PrivateRoutes, Banner, CardSwiper, NewsCard, }
+export { Header, PrivateRoutes, Banner, CardSwiper, NewsCard, SingleNewsData, Sidebar }
