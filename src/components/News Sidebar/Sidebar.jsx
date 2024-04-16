@@ -7,7 +7,7 @@ const Sidebar = ({ articles }) => {
             <h2>More Latest News</h2>
             {
                 articles.map((article, index) => (
-                    <div id={index+1}>
+                    <div key={index}>
                         <NewsCard article={article} />
                     </div>
                 ))
