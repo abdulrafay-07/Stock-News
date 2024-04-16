@@ -210,3 +210,75 @@ body {
   margin-top: 2rem;
   font-size: 1.5rem;
 }
+
+/* Search News */
+
+.search-news-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rem 2rem;
+  row-gap: 4rem;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-news-data {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  row-gap: 1rem;
+}
+
+/* Search Component */
+
+.search-wrapper {
+  max-width: 384px;
+  border-radius: 0.25rem;
+  margin: 2.5rem auto;
+}
+
+#search-form {
+  width: 100%;
+  max-width: 384px;
+}
+
+.search-wrapper div {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.0625rem solid rgb(186, 165, 68);
+  padding: 0.5rem 0;
+}
+
+#search-form input {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  color: rgb(55, 65, 81);
+  margin-right: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  line-height: 1.25;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.125rem;
+}
+
+#search-form button {
+  flex-shrink: 0;
+  background-color: rgb(186, 165, 68);
+  border-color: rgb(186, 165, 68);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-width: 0.15rem;
+  color: #fff;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
+
+#search-form button:hover {
+  border-color: rgb(154, 133, 41);
+  background-color: rgb(154, 133, 41);
+}
