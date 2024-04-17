@@ -48,7 +48,7 @@ const SearchNews = () => {
                 <div className='search-news-data'>
                     {
                         data.map((data, index) => (
-                            <div key={index}>
+                            <div key={index} className='search-news-cards'>
                                 <NewsCard article={data} />
                             </div>
                         ))

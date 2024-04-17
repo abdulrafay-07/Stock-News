@@ -16,6 +16,14 @@ body {
   justify-content: center;
 }
 
+.card-div p, .search-news-cards p {
+  margin-top: 0.3125rem;
+}
+
+.card-div span, .search-news-cards span {
+  font-weight: bold;
+}
+
 /* Header */
 
 .header-wrapper {
@@ -110,14 +118,6 @@ body {
 .card-div {
   display: flex;
   flex-direction: column;
-}
-
-.card-div p {
-  margin-top: 0.3125rem;
-}
-
-.card-div span {
-  font-weight: bold;
 }
 
 .card-image {
@@ -230,7 +230,14 @@ body {
   margin-right: auto;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  row-gap: 1rem;
+  gap: 2rem;
+}
+
+.search-news-cards {
+  padding: 1.5rem 1rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0.625rem 0.9375rem -0.1875rem rgba(0, 0, 0, 0.1), 0 0.25rem 0.375rem -0.125rem rgba(0, 0, 0, 0.05);
 }
 
 /* Search Component */

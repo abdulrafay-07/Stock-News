@@ -1,6 +1,10 @@
 import React from 'react';
 
 const SingleNewsData = ({ article }) => {
+    if (!article) {
+        return null;
+    }
+
     return (
         <div className='news-wrapper'>
             <h1 id='news-title'>{article.title}</h1>
